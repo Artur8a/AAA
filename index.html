@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecnoSoluciones - Servicios Mecatrónicos Profesionales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(180deg); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: slideInDown 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,107,107,0.1), transparent);
+            transition: all 0.5s ease;
+            transform: rotate(45deg) translate(-100%, -100%);
+        }
+
+        .service-card:hover::before {
+            transform: rotate(45deg) translate(100%, 100%);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            text-align: left;
+        }
+
+        .service-features li {
+            margin: 0.5rem 0;
+            color: #555;
+        }
+
+        .service-features li::before {
+            content: '✓ ';
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .contact-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        /* Floating Action Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .nav-links { display: none; }
+            .services-grid { grid-template-columns: 1fr; }
+            .contact-info { grid-template-columns: 1fr; }
+        }
+
+        /* Additional animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">TecnoSoluciones</a>
+            <ul class="nav-links">
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Soluciones Técnicas Profesionales</h1>
+            <p>Especialista en Mecatrónica, Soldadura, Instalaciones Eléctricas, Controles de Acceso y Paneles Solares. ¡Calidad garantizada!</p>
+            <a href="#contacto" class="cta-button">¡COTIZA GRATIS AHORA!</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios Especializados</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Mecatrónica</h3>
+                    <p>Sistemas automatizados y control industrial de última generación</p>
+                    <ul class="service-features">
+                        <li>Automatización de procesos</li>
+                        <li>Programación de PLC</li>
+                        <li>Sistemas robóticos</li>
+                        <li>Mantenimiento preventivo</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">🔥</div>
+                    <h3>Soldadura Profesional</h3>
+                    <p>Trabajos de soldadura especializados con garantía de calidad</p>
+                    <ul class="service-features">
+                        <li>Soldadura MIG/MAG</li>
+                        <li>Soldadura TIG</li>
+                        <li>Soldadura por arco</li>
+                        <li>Estructuras metálicas</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">⚡</div>
+                    <h3>Instalaciones Eléctricas</h3>
+                    <p>Instalaciones seguras y certificadas bajo normativas vigentes</p>
+                    <ul class="service-features">
+                        <li>Instalaciones residenciales</li>
+                        <li>Instalaciones industriales</li>
+                        <li>Tableros eléctricos</li>
+                        <li>Certificaciones CFE</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">🔐</div>
+                    <h3>Controles de Acceso</h3>
+                    <p>Sistemas de seguridad modernos para proteger tu negocio</p>
+                    <ul class="service-features">
+                        <li>Sistemas biométricos</li>
+                        <li>Tarjetas de proximidad</li>
+                        <li>Control por aplicación móvil</li>
+                        <li>Integración con cámaras</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">☀️</div>
+                    <h3>Paneles Solares</h3>
+                    <p>Energía renovable para reducir tus costos eléctricos hasta 95%</p>
+                    <ul class="service-features">
+                        <li>Sistemas residenciales</li>
+                        <li>Sistemas comerciales</li>
+                        <li>Interconexión CFE</li>
+                        <li>Financiamiento disponible</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="beneficios">
+        <div class="container">
+            <h2 class="section-title">¿Por Qué Elegir TecnoSoluciones?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">🎯</div>
+                    <h4>Experiencia Comprobada</h4>
+                    <p>Más de 10 años en el sector con proyectos exitosos</p>
+                </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">💰</div>
+                    <h4>Precios Competitivos</h4>
+                    <p>Las mejores tarifas del mercado sin sacrificar calidad</p>
+                </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">🔧</div>
+                    <h4>Soporte 24/7</h4>
+                    <p>Atención inmediata para emergencias técnicas</p>
+                </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">✅</div>
+                    <h4>Garantía Total</h4>
+                    <p>Todos nuestros trabajos incluyen garantía extendida</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title">¡Contáctanos Ahora!</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Cotización gratuita • Atención inmediata • Sin compromiso</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>📱 WhatsApp</h4>
+                    <p>+52 662 XXX XXXX</p>
+                    <small>Respuesta inmediata</small>
+                </div>
+                <div class="contact-item">
+                    <h4>📧 Email</h4>
+                    <p>info@tecnosoluciones.mx</p>
+                    <small>Cotizaciones por email</small>
+                </div>
+                <div class="contact-item">
+                    <h4>📍 Ubicación</h4>
+                    <p>Heroica Guaymas, Sonora</p>
+                    <small>Servicio en toda la región</small>
+                </div>
+                <div class="contact-item">
+                    <h4>⏰ Horarios</h4>
+                    <p>Lun - Sáb: 8:00 - 18:00</p>
+                    <small>Emergencias 24/7</small>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem;">
+                <a href="https://wa.me/52662XXXXXXX?text=Hola,%20me%20interesa%20cotizar%20un%20servicio" class="cta-button" target="_blank">
+                    💬 ENVIAR WHATSAPP
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/52662XXXXXXX?text=Hola,%20necesito%20información%20sobre%20sus%20servicios" class="whatsapp-float" target="_blank">
+        💬
+    </a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(30, 60, 114, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
